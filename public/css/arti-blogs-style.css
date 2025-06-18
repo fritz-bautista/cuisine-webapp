@@ -1,0 +1,275 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-main-header {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.img-header {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.home-header-content {
+    margin-top: 3vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 5vh 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+
+.home-main-header h1 {
+    color: #FFF;
+    font-family: Poppins, sans-serif;
+    font-size: 6vh;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.2;
+    width: 65%;
+}
+
+
+.home-email-text-holder {
+    margin-top: 3vh;
+    width: 35%;
+    font-size: 2vh;
+    padding: 1.5vh;
+    border-radius: 1vh;
+    border: none;
+}
+
+.link-preview {
+
+    padding-left: 8vh;
+    padding-top: 5vh;
+    padding-bottom: 1vh;
+    font-family: Poppins;
+    font-size: 2vh;
+}
+
+/* Article CSS Section */
+
+.article-container {
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    /* Moves children to left and right */
+    align-items: center;
+    padding: 2vh;
+    width: 100%;
+    max-width: 90%;
+    margin: auto;
+}
+
+.search-container h1 {
+    font-family: Poppins, sans-serif;
+    font-size: 5vh;
+    color: #1E1E1E;
+}
+
+.search-container input {
+    width: 30%;
+    padding: 1vh;
+    font-size: 2vh;
+    border-radius: 1vh;
+    border: 3px solid #1E1E1E;
+}
+
+/* Optional: Responsive */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2vh;
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+
+    .search-container h1 {
+        text-align: center;
+    }
+}
+
+.line-divider {
+    border: none;
+    height: 1px;
+    background-color: #1E1E1E;
+    /* Change color as needed */
+    margin: 2vh 0;
+    width: 88%;
+    /* or use a specific value like 80% */
+}
+
+/* Optional: Center and control width */
+.centered-divider {
+    margin: 4vh auto;
+    width: 80%;
+    background-color: #859F3D;
+    /* Example: theme color */
+    height: 2px;
+    border: none;
+}
+
+.filter-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    gap: 1vh;
+    padding: 1vh 2vh;
+    margin: 0;
+    box-sizing: border-box;
+    max-width: 88%;
+    scroll-behavior: smooth;
+}
+
+/* Optional: make scrollbar thin and neat */
+.filter-container::-webkit-scrollbar {
+    height: 5px;
+}
+
+.filter-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* Style for each category link */
+.filter-container a {
+    flex: 0 0 auto;
+    /* Important for horizontal scroll */
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8vh;
+    padding: 0.8vh 1.5vh;
+    background-color: #859F3D;
+    color: white;
+    border-radius: 1vh;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.filter-container a:hover {
+    background-color: #6c8232;
+}
+
+/* Optional: prevent .article-container from overflowing */
+.article-container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.sub-topic-picker {
+    gap: 10vh;
+    display: flex;
+    align-items: center;
+    font-size: 2vh;
+}
+
+.article-section {
+    font-family: 'Poppins', sans-serif;
+    width: 88%;
+    padding: 3vh;
+    overflow: hidden;
+}
+
+.article-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4vh;
+    max-height: 130vh; /* Limit to 2 rows */
+    overflow-y: auto;
+}
+
+.article-card {
+    background: #fff;
+    border-radius: 1vh;
+    border: 0.3vh solid #1E1E1E;
+    box-shadow: 0 0 1vh rgba(0,0,0,0.1);
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.article-category {
+    font-size: 1.7vh;
+    color: #859F3D;
+    font-weight: 600;
+}
+
+.article-card img {
+    width: 100%;
+    height: 18vh;
+    object-fit: cover;
+    border-radius: 0.5vh;
+}
+
+.article-title {
+    font-size: 2.2vh;
+    font-weight: 600;
+    margin: 0;
+}
+
+.article-description {
+    font-size: 1.7vh;
+    color: #333;
+}
+
+.article-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5vh;
+    color: #888;
+}
+
+.load-more-container {
+    margin-top: 2vh;
+    text-align: center;
+}
+
+.load-more-btn {
+    background: #859F3D;
+    color: #fff;
+    border: none;
+    padding: 1.5vh 3vh;
+    border-radius: 1vh;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .article-card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .article-card-container {
+    grid-template-columns: 1fr;
+  }
+}

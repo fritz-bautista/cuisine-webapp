@@ -6,11 +6,13 @@
 </head>
 <body>
     <div class="Nav-Bar">
+        <a class="Logo-link" href="{{ route('home') }}"><img class="Logo" src="{{ asset('img/Logo.png') }}" alt="logo" > </a>
         <div class="Nav-Bar-Category-Container">
-            <a>Articles & Blogs</a>
-            <a>Forum</a>
-            <a>Restaurants</a>
+            <a href="{{ route('arti.blogs') }}">Articles & Blogs</a>
+            <a>Community</a>
+            <a href="{{ route('featured.resto') }}">Restaurants</a>
             <a>About</a>
+            <a>Contacts</a>
         </div>
         <div class="Auth-Container">
             @if (Auth::check())

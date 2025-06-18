@@ -7,15 +7,17 @@
 @section('content')
 <body>
     <div class="home-main-header">
-        <img class="img-header" src="{{ asset('img/header/home_header.png') }}" alt="Banner Image">
-        <h1>A Platform for Culinary Exploration 
-            and Industry Insight.</h1>
-        <input type="text" class="home-email-text-holder">
+    <img class="img-header" src="{{ asset('img/header/home_header.png') }}" alt="Banner Image">
+
+    <div class="home-header-content">
+        <h1>A Platform for Culinary Exploration and Industry Insight.</h1>
+        <input type="text" class="home-email-text-holder" placeholder="Enter your email">
+    </div>
     </div>
 
     <div class="home-featured-container">
         <div class="featured-description-container">
-            <h1>Featured Stories</h2>
+            <h1>Featured Articles</h2>
             <p>Check out these awesome stories about their culinary innovations from different people around the world.</p>
             <button class="view-more-button">View More</button>
         </div>
@@ -92,7 +94,6 @@
             <p>Check out these awesome stories about their culinary innovations from different people around the world.</p>
         </div>
         <div class="review-slider">
-            <h2>Recent Reviews</h2>
             <div class="slider-wrapper">
                 @for ($i = 1; $i <= 6; $i++)
                     <div class="review-card">
@@ -119,7 +120,27 @@
     </div>
 
     <div class="home-about-container">
-        <div class="about-cards">
+        <div class="cuisine-grid-container">
+            <div class="about-card">
+                <h2>CU</h2>
+                <p><strong>Culinary</strong> – Centered on the art, science, and culture of food and cooking.</p>
+            </div>
+            <div class="about-card">
+                <h2>I</h2>
+                <p><strong>Innovation</strong> – Embracing creativity and technology in culinary practices.</p>
+            </div>
+            <div class="about-card">
+                <h2>S</h2>
+                <p><strong>Studies</strong> – Fostering academic and practical knowledge in the food domain.</p>
+            </div>
+            <div class="about-card">
+                <h2>I</h2>
+                <p><strong>Industries</strong> – Connecting with sectors like hospitality, agrifood, and tech.</p>
+            </div>
+            <div class="about-card">
+                <h2>NE</h2>
+                <p><strong>Network</strong> – Building a collaborative community across the culinary field.</p>
+            </div>
         </div>
     </div>
 </body>
