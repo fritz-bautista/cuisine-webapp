@@ -1,0 +1,140 @@
+/* Container */
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Chart Section */
+.chart-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.chart-box1 {
+    flex: 1 1 10vh;
+    background: #fff;
+    border-radius: 16px;
+    padding: 5vh;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.chart-box2 {
+    flex: 1 1 60vh;
+    background: #fff;
+    border-radius: 16px;
+    padding: 5vh;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Section Header */
+.section h4 {
+    margin-bottom: 16px;
+}
+
+/* Article Card Common Styles */
+.article-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.article-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 260px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.article-category {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.article-card h5 {
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+}
+
+.article-card p {
+    font-size: 0.95rem;
+    margin: 0 0 5px;
+    color: #444;
+}
+
+/* Horizontal Slider */
+.horizontal-slider {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+}
+
+.horizontal-slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal-slider::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 4px;
+}
+
+/* Vertical Slider */
+.vertical-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Optional scrollbar styling for WebKit browsers */
+.vertical-slider::-webkit-scrollbar {
+    width: 8px;
+}
+
+.vertical-slider::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 4px;
+}
+
+.vertical-slider::-webkit-scrollbar {
+    width: 8px;
+}
+
+.vertical-slider::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .chart-row {
+        flex-direction: column;
+    }
+
+    .article-card {
+        width: 100%;
+    }
+
+    .horizontal-slider {
+        flex-direction: column;
+        overflow-x: unset;
+    }
+}

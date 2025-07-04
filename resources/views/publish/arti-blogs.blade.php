@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="{{ asset('css/arti-blogs-style.css') }}">
 @endsection
 
+@section('title')
+    <title>Article & Blogs</title>
+@endsection
+
 @section('content')
     <script>
         function loadMoreArticles() {
@@ -16,7 +20,6 @@
     <body>
         <div class="home-main-header">
             <img class="img-header" src="{{ asset('img/header/arti-blog-header.png') }}" alt="Banner Image">
-
             <div class="home-header-content">
                 <h1>A Platform for Culinary Exploration and Industry Insight.</h1>
             </div>
@@ -31,6 +34,7 @@
                 <h1>Articles & Blogs</h1>
                 <input type="text" placeholder="Title, Author, ">
             </div>
+
             <div class="filter-container">
                 <a>Culinary Research & Innovation</a>
                 <a>Chef Stories & Interviews</a>
@@ -41,35 +45,43 @@
                 <a>Reviews & Features</a>
                 <a>Student Research & Contributions</a>
             </div>
+
             <hr class="line-divider">
-            <div class="sub-topic-picker">
-                <a>Food Technology</a>
-                <a>Ingredient Innovation</a>
-                <a>Culinary Science</a>
-                <a>Nutrition & Health Research</a>
-            </div>
-            <hr class="line-divider">
+
+            {{-- Removed sub-topic picker --}}
+
             <div class="article-section">
                 <div class="article-card-container">
-                    @foreach (range(1, 12) as $i)
-                        <div class="article-card">
-                            <span class="article-category">Culinary Research</span>
-                            <img src="https://picsum.photos/400/200?random={{ $i }}" alt="Article Image">
-                            <h2 class="article-title">Innovative Approaches to Local Cuisine {{ $i }}</h2>
-                            <p class="article-description">Discover new methods and approaches being used in modern kitchens
-                                across the globe...</p>
-                            <div class="article-footer">
-                                <span class="author">John Doe</span>
-                                <span class="date">June 2025</span>
+                    @forelse ($articles as $article)
+                        <a href="{{ route('articles.show', ['id' => $article->id]) }}" class="article-card-link">
+                            <div class="article-card">
+                                <span class="article-category">{{ $article->category->name ?? 'Uncategorized' }}</span>
+                                <img src="{{ $article->sections->first()->image_url ?? 'https://via.placeholder.com/400x200' }}" alt="Article Image">
+                                <h2 class="article-title">{{ $article->title }}</h2>
+                                <p class="article-description">
+                                    {{ Str::limit($article->sections->first()->content ?? 'No preview available.', 100) }}
+                                </p>
+                                <div class="article-footer">
+                                    <span class="author">{{ $article->author }}</span>
+                                    <span class="date">{{ \Carbon\Carbon::parse($article->published_at)->format('F Y') }}</span>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        </a>
+                    @empty
+                        <p>No articles found.</p>
+                    @endforelse
                 </div>
-                <div class="load-more-container">
-                    <button class="load-more-btn">Load More</button>
-                </div>
+
+                @if ($articles->count() > 6)
+                    <div class="load-more-container">
+                        <button class="load-more-btn" onclick="loadMoreArticles()">Load More</button>
+                    </div>
+                @endif
             </div>
         </div>
-        </div>
     </body>
+@endsection
+
+@section('footer')
+    @include('footer')
 @endsection

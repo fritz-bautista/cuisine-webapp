@@ -1,0 +1,199 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-main-header {
+    position: relative;
+    width: 100%;
+    height: 35vh;
+    overflow: hidden;
+}
+
+.img-header {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.Article-Container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link-preview {
+
+    padding-left: 8vh;
+    padding-top: 5vh;
+    padding-bottom: 1vh;
+    font-family: Poppins;
+    font-size: 2vh;
+}
+
+
+.line-divider {
+    border: none;
+    height: 1px;
+    background-color: #1E1E1E;
+    /* Change color as needed */
+    margin: 2vh 0;
+    width: 88%;
+    /* or use a specific value like 80% */
+}
+
+/* Optional: Center and control width */
+.centered-divider {
+    margin: 4vh auto;
+    width: 80%;
+    background-color: #859F3D;
+    /* Example: theme color */
+    height: 2px;
+    border: none;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    padding-left: 0;
+}
+.table-of-contents li {
+    margin: 1vh 0;
+}
+.table-of-contents a {
+    text-decoration: none;
+    color: #859F3D;
+    font-weight: 500;
+}
+.table-of-contents a:hover {
+    text-decoration: underline;
+}
+.content-container section {
+    margin-top: 4vh;
+}
+
+.Article-Container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5vh 4vw;
+    font-family: 'Poppins', sans-serif;
+    color: #1E1E1E;
+    background-color: #fff;
+    line-height: 1.8;
+}
+
+/* Header & Title */
+.article-header h1 {
+    font-size: 4.5vh;
+    font-weight: 700;
+    margin-bottom: 1vh;
+}
+
+/* Author Info */
+.author-container {
+    font-size: 2vh;
+    color: #555;
+    margin-bottom: 2vh;
+}
+
+/* Table of Contents */
+.table-of-contents {
+    margin: 3vh 0;
+    padding: 2vh;
+    background-color: #f6f6f6;
+    border-left: 0.5vh solid #859F3D;
+    border-radius: 1vh;
+}
+
+.table-of-contents h3 {
+    font-size: 2.5vh;
+    margin-bottom: 1vh;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.table-of-contents li {
+    margin: 0.8vh 0;
+}
+
+.table-of-contents a {
+    color: #859F3D;
+    text-decoration: none;
+    font-size: 2vh;
+}
+
+.table-of-contents a:hover {
+    text-decoration: underline;
+}
+
+/* Section Headings */
+.content-container section h2,
+.introduction-container h2 {
+    font-size: 3.5vh;
+    font-weight: 600;
+    margin-top: 4vh;
+    margin-bottom: 1.5vh;
+    color: #222;
+}
+
+/* Paragraphs */
+.content-container p,
+.introduction-container p {
+    font-size: 2.2vh;
+    color: #333;
+    margin-bottom: 2vh;
+}
+
+/* Images */
+.content-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 1vh;
+    margin: 2vh 0;
+    object-fit: cover;
+}
+
+/* Divider Line */
+.line-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 4vh 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .Article-Container {
+        padding: 4vh 5vw;
+    }
+
+    .article-header h1 {
+        font-size: 3.5vh;
+    }
+
+    .table-of-contents {
+        padding: 2vh;
+    }
+
+    .table-of-contents h3 {
+        font-size: 2.2vh;
+    }
+
+    .table-of-contents a {
+        font-size: 1.9vh;
+    }
+
+    .content-container section h2 {
+        font-size: 2.8vh;
+    }
+
+    .content-container p {
+        font-size: 2vh;
+    }
+}

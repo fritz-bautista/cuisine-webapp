@@ -19,7 +19,6 @@ body {
 }
 
 .home-header-content {
-    margin-top: 3vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -60,7 +59,7 @@ body {
     }
 
     .home-header-content h1 {
-        font-size: 3.5vh;
+        font-size: 4vh;
         width: 90%;
         text-align: center;
     }

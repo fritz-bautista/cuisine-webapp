@@ -17,3 +17,86 @@ body {
     object-position: center;
     display: block;
 }
+
+.link-preview {
+
+    padding-left: 8vh;
+    padding-top: 5vh;
+    padding-bottom: 1vh;
+    font-family: Poppins;
+    font-size: 2vh;
+}
+
+.explore-container {
+    font-family: 'Poppins', sans-serif;
+    width: 90%;
+    margin: auto;
+    padding: 3vh 0;
+}
+
+.explore-description-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.resto-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 5vh;
+}
+
+.resto-card {
+    font-family: Poppins;
+    width: 35vh;
+    height: 45vh;
+    background-color: #fff;
+    border: 0.5vh solid #1E1E1E;
+    border-radius: 2vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.resto-city {
+    font-size: 1.8vh;
+    margin-left: 1.5vh;
+    font-weight: 400;
+}
+
+.resto-image {
+    padding: 1vh;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.resto-title {
+    font-size: 2.5vh;
+    margin: 1vh 1.5vh 0 1.5vh;
+}
+
+.resto-stars {
+    padding-left: 1.5vh;
+    margin-top: 0.5vh;
+}
+
+.resto-description {
+    font-size: 1.8vh;
+    margin: 1vh 1.5vh 1.5vh 1.5vh;
+    color: #333;
+}
+
+.resto-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.resto-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
