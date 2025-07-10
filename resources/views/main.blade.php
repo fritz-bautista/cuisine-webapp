@@ -29,7 +29,7 @@
                 <a href="{{ route('profile.edit') }}">Profile</a>
                 <form method="POST" action="{{ route('logout') }}" style="display:inline;">
                     @csrf
-                    <button type="submit" style= cursor:pointer;">
+                    <button type="submit" style= cursor:pointer;>
                         Logout
                     </button>
                 </form>

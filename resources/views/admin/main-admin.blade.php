@@ -13,7 +13,7 @@
     <div class="admin-dashboard">
         <aside class="admin-sidebar">
             <div class="admin-logo">
-                <h2>CUISINE Admin</h2>
+                <img src="{{ asset('img/Logo_Admin.png') }}" alt="CUISINE Admin Logo">
             </div>
             <nav class="admin-nav">
                 <a href="{{ route('admin.dashboard') }}">📰 Dashboard</a>
@@ -22,6 +22,12 @@
                 <a href="{{ route('admin.users') }}">👥 User Manager</a>
                 <a href="{{ route('admin.events') }}">📅 Event Manager</a>
                 <a href="">⚙️ Settings</a>
+                <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+                    @csrf
+                    <button type="submit" style= cursor:pointer;>
+                        Logout
+                    </button>
+                </form>
             </nav>
         </aside>
 

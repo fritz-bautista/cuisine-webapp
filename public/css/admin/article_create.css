@@ -1,0 +1,126 @@
+.container {
+    font-family: Poppins;
+    width: 100%;
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.container input,
+select {
+    font-size: 2.5vh;
+    width: 100%;
+    padding: 1vh;
+    font-family: Poppins;
+}
+
+.container label {
+    font-weight: 600;
+}
+
+.container textarea {
+    font-size: 2.5vh;
+    width: 100%;
+    height: 20vh;
+    padding: 1vh;
+    font-family: Poppins;
+}
+
+.section-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    margin-bottom: 5vh;
+}
+
+button.btn.move-up,
+button.btn.move-down {
+    width: 6vh;
+    height: 6vh;
+    border: 0.1vh solid #1E1E1E;
+    border-radius: 1vh;
+    transition: 0.2s ease-in;
+}
+
+button.btn.move-up:hover,
+button.btn.move-down:hover {
+    width: 6vh;
+    height: 6vh;
+    border: 0.1vh solid #1E1E1E;
+    border-radius: 1vh;
+    background-color: gray;
+    cursor: pointer;
+}
+
+button.btn.move-up.disabled,
+button.btn.move-down.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+
+.btn2 {
+    font-family: Poppins;
+    color: white;
+    font-size: 2vh;
+    background-color: #859F3D;
+    border-radius: 1vh;
+    height: 6vh;
+    border: 0.1vh solid #1E1E1E;
+    width: 100%;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.btn2:hover {
+    background-color: #516125;
+}
+
+.btn3 {
+    font-family: Poppins;
+    font-size: 2vh;
+    border-radius: 1vh;
+    height: 6vh;
+    border: 0.1vh solid #1E1E1E;
+    width: 100%;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.btn3:hover {
+    background-color: grey;
+}
+
+.line-divider {
+    border: none;
+    height: 1px;
+    background-color: #1E1E1E;
+    margin: 2vh auto;
+    /* center horizontally */
+    width: 100%;
+}
+
+.btn4 {
+    font-family: Poppins;
+    font-size: 2vh;
+    border-radius: 1vh;
+    height: 6vh;
+    border: 0.1vh solid #1E1E1E;
+    color: white;;
+    background-color: rgb(184, 64, 64);
+    width: 100%;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.btn4:hover {
+    background-color: rgb(80, 34, 34);
+}

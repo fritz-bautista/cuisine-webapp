@@ -28,7 +28,7 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all(); // fetch all categories
-        return view('admin.article_manager', compact('categories'));
+        return view('admin.article_create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -61,7 +61,7 @@ class ArticleController extends Controller
             'category_id' => $request->category_id,
             'published_at' => $request->published_at,
             'description' => $request->description ?? null, // optional
-            'status' => 'draft', // or $request->status if using dropdown
+            'status' => $request->status, // <-- use the value from the form
             'user_id' => $user->id, // ensure it's not null
         ]);
 
@@ -146,6 +146,14 @@ class ArticleController extends Controller
         }
 
         return redirect()->route('articles.edit', $article->id)->with('success', 'Article updated!');
+    }
+
+    public function destroy($id)
+    {
+        $article = Article::findOrFail($id);
+        $article->delete(); // This will also delete all related sections due to ON DELETE CASCADE
+
+        return redirect()->route('articles.dashboard')->with('success', 'Article deleted successfully.');
     }
 
     public function articleDashboard()

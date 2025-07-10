@@ -27,7 +27,7 @@
                 <div class="table-of-contents">
                     <h3>Table of Contents</h3>
                     <ul>
-                        @foreach ($article->sections as $index => $section)
+                        @foreach ($article->sections->sortBy('order') as $index => $section)
                             <li>
                                 <a href="#section-{{ $index }}">
                                     {{ $index + 1 }}. {{ $section->heading }}
@@ -42,7 +42,7 @@
         <hr class="line-divider">
 
         <div class="content-container">
-            @foreach ($article->sections as $index => $section)
+            @foreach ($article->sections->sortBy('order') as $index => $section)
                 <section id="section-{{ $index }}">
                     <h2>{{ $section->heading }}</h2>
 

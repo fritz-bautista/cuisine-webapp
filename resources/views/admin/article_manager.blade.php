@@ -10,8 +10,6 @@
 
 @section('admin-content')
     <div class="container py-4">
-        <h2>Article Dashboard Overview</h2>
-
         <div class="chart-row">
             <div class="chart-box1">
                 <h4>Total Articles</h4>
@@ -21,6 +19,16 @@
                 <h4>Articles by Category</h4>
                 <canvas id="categoryBarChart"></canvas>
             </div>
+        </div>
+
+        <div class="create-container">
+            <h1>Article Manager</h1>
+            <form method="GET" action="{{ route('articles.create') }}" style="display:inline;">
+                    @csrf
+                    <button class="btn"type="submit" style= cursor:pointer;>
+                        Create an Article
+                    </button>
+                </form>
         </div>
 
         <div class="section mt-5">
@@ -62,7 +70,6 @@
                 @endif
             </div>
         </div>
-
 
         <script>
             const totalArticlesChart = new Chart(document.getElementById('totalArticlesChart'), {

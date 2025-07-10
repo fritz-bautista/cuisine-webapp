@@ -8,7 +8,6 @@ use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController;
 
 
 Route::get('/', function () {
@@ -40,10 +39,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // Create Article
+});
+require __DIR__ . '/auth.php';
+
+// Admin routes (no prefix, but all protected by auth and admin middleware)
+Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('/admin/articles-manager', [ArticleController::class, 'articleDashboard'])->name('articles.dashboard');
     Route::get('/admin/articles/create', [ArticleController::class, 'create'])->name('articles.create');
-    Route::post('/articles', action: [ArticleController::class, 'store'])->name('articles.store');
+    Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
     Route::get('/admin/restaurant-manager', [AdminController::class, 'admin_restaurant'])->name('admin.restaurants');
@@ -55,5 +58,7 @@ Route::middleware('auth')->group(function () {
 
     // Update article
     Route::put('/admin/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+
+    // Delete Article
+    Route::delete('/admin/articles/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 });
-require __DIR__ . '/auth.php';
