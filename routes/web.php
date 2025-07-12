@@ -10,6 +10,11 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 
 
+Route::get('/ping', function () {
+    return 'pong';
+});
+
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
