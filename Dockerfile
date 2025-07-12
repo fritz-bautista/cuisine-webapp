@@ -4,21 +4,7 @@ FROM composer:latest AS build-backend
 WORKDIR /app
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader \
-    && cp .env.example .env \
-    && php artisan key:generate --ansi \
-    # 🛠 Create Laravel-required directories BEFORE caching
-    && mkdir -p \
-        storage/logs \
-        storage/framework/views \
-        storage/framework/sessions \
-        storage/framework/cache \
-        bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache \
-    && php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache
+RUN composer install --no-dev --optimize-autoloader 
 
 # === Stage 2: Node build for Vite ===
 FROM node:18 AS build-frontend
