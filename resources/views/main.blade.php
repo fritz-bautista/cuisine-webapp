@@ -2,6 +2,8 @@
 
 <head>
     @yield('title')
+    {{-- ✅ Vite-compiled CSS/JS --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/nav-bar.css') }}">
     @yield('styles')
     @yield('styles2')
@@ -29,7 +31,7 @@
                 <a href="{{ route('profile.edit') }}">Profile</a>
                 <form method="POST" action="{{ route('logout') }}" style="display:inline;">
                     @csrf
-                    <button type="submit" style= cursor:pointer;>
+                    <button type="submit" style=cursor:pointer;>
                         Logout
                     </button>
                 </form>
