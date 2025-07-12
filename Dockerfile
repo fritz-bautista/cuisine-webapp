@@ -1,22 +1,32 @@
-FROM php:8.2-fpm
+# ✨ Stage 1: Build Laravel App with Composer
+FROM composer:latest AS build
 
-RUN apt-get update && apt-get install -y \
-    nginx supervisor git curl zip unzip libpq-dev libzip-dev libpng-dev \
-    && docker-php-ext-install pdo pdo_pgsql zip
+WORKDIR /app
 
-COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
-
-WORKDIR /var/www
 COPY . .
+RUN composer install --no-dev --optimize-autoloader
 
-# ✅ THIS IS THE CRUCIAL LINE
-COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY ./docker/supervisord.conf /etc/supervisord.conf
+# 📦 Stage 2: PHP + NGINX
+FROM richarvey/nginx-php-fpm:3.1.6
 
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
-    && php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache
+COPY --from=build /app /var/www/html
+
+# Image config
+ENV SKIP_COMPOSER 1
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
+
+# Laravel config
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
+
+# Allow composer to run as root
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+# Copy your custom nginx config
+COPY ./docker/nginx/nginx.conf /etc/nginx/sites-available/default
 
 EXPOSE 80
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
