@@ -8,7 +8,6 @@ COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 COPY . .
-
 COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY ./docker/supervisord.conf /etc/supervisord.conf
 
@@ -16,7 +15,8 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
     && php artisan config:cache \
     && php artisan route:cache \
     && php artisan view:cache \
-    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+    && ls -l /var/www/public && cat /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
