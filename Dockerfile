@@ -6,6 +6,10 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
+RUN php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache
+
 # === Stage 2: Node build for Vite ===
 FROM node:18 AS build-frontend
 
