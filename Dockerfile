@@ -11,6 +11,9 @@ RUN php artisan config:cache \
     && php artisan view:cache \
     && chmod -R 775 storage bootstrap/cache
 
+RUN mkdir -p storage/logs bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
+
 # === Stage 2: Node build for Vite ===
 FROM node:18 AS build-frontend
 
