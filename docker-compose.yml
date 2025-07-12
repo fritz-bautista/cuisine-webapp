@@ -1,18 +1,30 @@
+version: '3.8'
+
 services:
-  web:
+  app:
     build:
       context: .
-    container_name: laravel_web
-    ports:
-      - "80:80"  # Render will detect port 80
+      dockerfile: Dockerfile
+    working_dir: /var/www
     volumes:
       - .:/var/www
+    expose:
+      - 9000
     networks:
-      - laravel
-    environment:
-      APP_URL: http://localhost
-      # Optionally load secrets here or rely on .env
-    command: ["/entrypoint.sh"]
+      - appnet
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - appnet
 
 networks:
-  laravel:
+  appnet:
+    driver: bridge
