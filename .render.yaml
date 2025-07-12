@@ -1,5 +1,5 @@
 services:
   - type: web
-    name: laravel-app
+    name: cuisine-webapp
     env: docker
     plan: free
