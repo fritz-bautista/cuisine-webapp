@@ -14,6 +14,7 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
+# After installing nginx and setting up Laravel
 COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 COPY docker/entrypoint.sh /entrypoint.sh

@@ -1,7 +1,11 @@
 #!/bin/sh
 
-# Start PHP-FPM
+set -e
+
+php artisan config:cache || true
+php artisan route:cache || true
+php artisan view:cache || true
+
 php-fpm &
 
-# Start Nginx in foreground
 nginx -g "daemon off;"
