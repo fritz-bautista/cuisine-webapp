@@ -1,25 +1,25 @@
-FROM php:8.2-fpm
+FROM php:8.2-fpm as backend
 
-# Install required PHP extensions
 RUN apt-get update && apt-get install -y \
-    libpq-dev zip unzip git curl libzip-dev libonig-dev libxml2-dev \
+    nginx zip unzip git curl libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql
 
-# Install Composer
 COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
 
-# Set working directory
 WORKDIR /var/www
 
-# Copy full Laravel app (including artisan!)
 COPY . .
 
-# Fix permissions before running Composer
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
-
-# ✅ Composer install AFTER full app (artisan now exists)
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# ✅ Optional: Set permission again if needed
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+
+# Entrypoint shell script to start both PHP-FPM and Nginx
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+EXPOSE 80
+
+CMD ["/entrypoint.sh"]
