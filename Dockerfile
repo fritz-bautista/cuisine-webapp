@@ -7,18 +7,18 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader \
     && cp .env.example .env \
     && php artisan key:generate --ansi \
-    && php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache \
-    # 🛠 Create Laravel-required directories
-    && mkdir -p storage/logs \
+    # 🛠 Create Laravel-required directories BEFORE caching
+    && mkdir -p \
+        storage/logs \
         storage/framework/views \
         storage/framework/sessions \
         storage/framework/cache \
         bootstrap/cache \
-    # 🔓 Fix permissions
     && chmod -R 775 storage bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache
+    && chown -R www-data:www-data storage bootstrap/cache \
+    && php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache
 
 # === Stage 2: Node build for Vite ===
 FROM node:18 AS build-frontend
@@ -53,13 +53,5 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Nginx config override (optional)
 COPY ./docker/nginx/nginx.conf /etc/nginx/sites-available/default
-
-RUN mkdir -p /var/www/html/storage/framework/views \
-    /var/www/html/storage/framework/sessions \
-    /var/www/html/storage/framework/cache \
-    /var/www/html/storage/logs \
-    /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80
