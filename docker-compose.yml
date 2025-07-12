@@ -1,31 +1,18 @@
 services:
-  app:
+  web:
     build:
       context: .
-    container_name: laravel_app
-    working_dir: /var/www
+    container_name: laravel_web
+    ports:
+      - "80:80"  # Render will detect port 80
     volumes:
       - .:/var/www
-    ports:
-      - "8000:8000"
     networks:
       - laravel
     environment:
-      # Laravel will pull the DB vars from the .env file
-      APP_URL: http://localhost:8000
-
-  nginx:
-    image: nginx:alpine
-    container_name: laravel_nginx
-    ports:
-      - "80:80"
-    volumes:
-      - .:/var/www
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - app
-    networks:
-      - laravel
+      APP_URL: http://localhost
+      # Optionally load secrets here or rely on .env
+    command: ["/entrypoint.sh"]
 
 networks:
   laravel:
