@@ -27,4 +27,4 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
 # Expose port 80 for Render
 EXPOSE 80
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+CMD ["php-fpm"]
