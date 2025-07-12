@@ -16,10 +16,7 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
-# Entrypoint shell script to start both PHP-FPM and Nginx
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-
-EXPOSE 80
 
 CMD ["/entrypoint.sh"]
