@@ -15,6 +15,6 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
     && php artisan view:cache \
     && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-EXPOSE 80
+EXPOSE 10000
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=10000"]
