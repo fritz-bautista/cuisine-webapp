@@ -38,6 +38,6 @@ ENV LOG_CHANNEL stderr
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Nginx config override (optional)
-COPY ./docker/nginx/nginx.conf /etc/nginx/sites-available/default
+COPY ./docker/nginx/nginx.conf /etc/nginx/sites-enabled/default.conf
 
 EXPOSE 80
