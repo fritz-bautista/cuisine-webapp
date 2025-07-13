@@ -18,19 +18,9 @@ RUN npm run build     # generates /public/build with manifest.json
 # === Stage 3: Final image with Nginx + PHP-FPM ===
 FROM richarvey/nginx-php-fpm:3.1.6
 
-# Copy Laravel app from backend stage
 COPY --from=build-backend /app /var/www/html
-
-# Copy Vite-built assets into public/
 COPY --from=build-frontend /app/public /var/www/html/public
-
-# Nginx config override
 COPY ./docker/nginx/nginx.conf /etc/nginx/sites-available/default
-
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-
-CMD ["/start.sh"]
 
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
