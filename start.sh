@@ -1,3 +1,12 @@
-#!/bin/bash
-php-fpm8.1 -D        # Start PHP-FPM in daemon mode
-nginx -g 'daemon off;'  # Start NGINX in foreground for container
+#!/usr/bin/env bash
+echo "Running composer"
+composer install --no-dev --working-dir=/var/www/html
+
+echo "Caching config..."
+php artisan config:cache
+
+echo "Caching routes..."
+php artisan route:cache
+
+echo "Running migrations..."
+php artisan migrate --force
