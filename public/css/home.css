@@ -470,12 +470,136 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .home-main-header,
-    .trending-restaurants-container,
+    body {
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .home-featured-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .featured-description-container {
+        margin: 0;
+        line-height: 2vh;
+        padding-left: 3vh;
+        padding-right: 3vh;
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .featured-description-container h1 {
+        padding: 0;
+        font-size: 4vh;
+        width: 100%;
+        text-align: center;
+        height: auto;
+    }
+
+    .featured-description-container p {
+        font-size: 2.5vh;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        height: auto;
+    }
+
+    .article-slider {
+        width: 100%;
+        height: auto;
+    }
+
+    .article-card {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 2vh;
+    }
+
+    .trending-restaurants-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .trending-description-container {
+        width: 100%;
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .trending-description-container h1 {
+        font-size: 4vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    .trending-description-container p {
+        font-size: 2.5vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    .trending-cuisines-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .trending-cuisines-slider h1 {
+        font-size: 4vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    .review-description-container {
+        width: 100%;
+        margin: 0;
+        align-items: center;
+        padding-left: 3vh;
+        padding-right: 3vh;
+        height: auto;
+    }
+
+    .review-description-container h1 {
+        font-size: 4vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    .review-description-container p {
+        font-size: 2.5vh;
+        width: 100%;
+        text-align: center;
+    }
+
     .reviews-container,
     .home-about-container {
         flex-direction: column;
         height: auto;
+    }
+
+    .review-card {
+        background-color: #fff;
+        border-radius: 1.5vh;
+        padding: 2.5vh 2vh;
+        border: 0.5vh solid #1E1E1E;
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 2vh;
+        box-shadow: 0 0.4vh 1vh rgba(0, 0, 0, 0.1);
     }
 
     .home-header-content {
@@ -484,19 +608,13 @@ body {
         text-align: center;
     }
 
-    .home-header-content h1,
-    .featured-description-container h1,
-    .trending-description-container h1,
-    .review-description-container h1 {
+    .home-header-content h1 {
         font-size: 4vh;
         width: 100%;
         text-align: center;
     }
 
-    .home-email-text-holder,
-    .featured-description-container,
-    .trending-description-container,
-    .review-description-container {
+    .home-email-text-holder {
         width: 100%;
         margin-left: 0;
         align-items: center;
@@ -509,20 +627,14 @@ body {
         grid-template-rows: auto;
     }
 
-    .article-card,
-    .review-slider .review-card,
-    .cuisine-card {
-        width: 100%;
-        height: auto;
-    }
-
     .slider-wrapper {
         flex-wrap: nowrap;
         overflow-x: scroll;
     }
 
     .cuisine-grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
         gap: 2vh;
     }
 
@@ -533,6 +645,17 @@ body {
     }
 
     .about-card {
+        display: flex;
+        width: 100%;
         height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-card h2 {
+        font-weight: 600;
+        font-size: 5vh;
+        width: 100%;
+        text-align: center;
     }
 }
