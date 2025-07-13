@@ -4,7 +4,7 @@ FROM composer:latest AS build-backend
 WORKDIR /app
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader 
+RUN composer install --no-dev --optimize-autoloader --working-dir=/var/www/html
 
 # === Stage 2: Node build for Vite ===
 FROM node:18 AS build-frontend
@@ -21,6 +21,12 @@ FROM richarvey/nginx-php-fpm:3.1.6
 COPY --from=build-backend /app /var/www/html
 COPY --from=build-frontend /app/public /var/www/html/public
 COPY ./docker/nginx/nginx.conf /etc/nginx/sites-available/default
+
+RUN composer install --no-dev --optimize-autoloader --working-dir=/var/www/html
+RUN php /var/www/html/artisan config:cache
+RUN php /var/www/html/artisan route:cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
