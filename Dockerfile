@@ -3,17 +3,15 @@ FROM composer:latest AS build-backend
 
 WORKDIR /app
 COPY . .
-
-RUN composer install --no-dev --optimize-autoloader --working-dir=/var/www/html
+RUN composer install --no-dev --optimize-autoloader
 
 # === Stage 2: Node build for Vite ===
 FROM node:18 AS build-frontend
 
 WORKDIR /app
 COPY . .
-
 RUN npm install
-RUN npm run build     # generates /public/build with manifest.json
+RUN npm run build
 
 # === Stage 3: Final image with Nginx + PHP-FPM ===
 FROM richarvey/nginx-php-fpm:3.1.6
