@@ -246,59 +246,6 @@ button.next-btn {
     font-size: 2.5vh;
 }
 
-/* 📱 Mobile Responsive for Features Section */
-@media (max-width: 768px) {
-    .features-container {
-        height: auto;
-        padding: 5vh 2vh;
-    }
-
-    .article-feature {
-        flex-direction: column;
-        gap: 3vh;
-    }
-
-    .img-container {
-        flex-direction: column;
-    }
-
-    .slider {
-        flex-direction: column;
-        gap: 2vh;
-    }
-
-    .main-img {
-        width: 80vw;
-        height: auto;
-    }
-
-    .thumb {
-        width: 40vw;
-        height: auto;
-    }
-
-    .description-container {
-        max-width: 90vw;
-        padding: 0 2vh;
-    }
-
-    .description-container h1 {
-        font-size: 4.5vh;
-        line-height: 5.5vh;
-    }
-
-    .description-container p {
-        font-size: 2.2vh;
-    }
-
-    button.prev-btn,
-    button.next-btn {
-        font-size: 2.2vh;
-        padding: 1vh 1.5vh;
-        margin: 1vh 0;
-    }
-}
-
 .target-audience-container,
 .team-container {
     padding: 8vh 10vw;
@@ -493,4 +440,141 @@ button.next-btn {
         width: 80%;
         margin-bottom: 3vh;
     }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .home-header-content {
+    align-items: center;
+    padding: 3vh 5vw;
+    text-align: center;
+  }
+
+  .home-header-content h1 {
+    font-size: 1.8rem;
+    width: 90%;
+    text-align: center;
+  }
+
+  .home-email-text-holder {
+    width: 90%;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+
+  .introduction-container {
+    padding: 5vh 2vh;
+  }
+
+  .introduction-container img {
+    width: 70%;
+    padding-bottom: 3vh;
+  }
+
+  .introduction-container p {
+    width: 90%;
+    font-size: 1.1rem;
+  }
+
+  .purpose-container h1 {
+    font-size: 2rem;
+  }
+
+  .purpose-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .purpose-card p {
+    font-size: 1rem;
+  }
+
+  .features-container {
+    height: auto;
+    padding: 5vh 2vh;
+  }
+
+  .article-feature {
+    flex-direction: column;
+    gap: 3vh;
+  }
+
+  .main-img {
+    width: 90vw;
+    height: auto;
+  }
+
+  .thumb {
+    width: 40vw;
+    height: auto;
+  }
+
+  .description-container {
+    max-width: 95vw;
+    padding: 0 2vh;
+  }
+
+  .description-container h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .description-container p {
+    font-size: 1.1rem;
+  }
+
+  .team-container,
+  .target-audience-container {
+    padding: 4vh 4vw;
+  }
+
+  .target-audience-container h2 {
+    font-size: 2rem;
+  }
+
+  .target-audience-container p {
+    font-size: 1rem;
+    width: 90%;
+  }
+
+  .audience-grid {
+    grid-template-columns: 1fr;
+    padding: 4vh 5vw;
+  }
+
+  .audience-card img {
+    height: 30vh;
+  }
+
+  .call-to-action-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 5vh 4vw;
+  }
+
+  .call-to-action-container .left {
+    padding-right: 0;
+  }
+
+  .cta-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-email,
+  .cta-submit {
+    width: 100%;
+    max-width: 90%;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+
+  .cta-image {
+    width: 80%;
+    margin-bottom: 3vh;
+  }
 }
