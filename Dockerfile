@@ -28,7 +28,9 @@ COPY --from=build-frontend /app/public /var/www/html/public
 COPY ./docker/nginx/nginx.conf /etc/nginx/sites-available/default
 
 COPY start.sh /start.sh
-RUN chmod +x /start.sh && /start.sh
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
 
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
