@@ -1,5 +1,0 @@
-services:
-  - type: web
-    name: cuisine-webapp
-    env: docker
-    plan: free
