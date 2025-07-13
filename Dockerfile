@@ -37,7 +37,8 @@ ENV APP_DEBUG false
 ENV LOG_CHANNEL stderr
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-# Nginx config override (optional)
-COPY ./docker/nginx/nginx.conf /etc/nginx/sites-available/default
+# Set permissions so Laravel can write logs, sessions, caches
+RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache \
+ && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80

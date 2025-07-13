@@ -14,7 +14,6 @@ Route::get('/ping', function () {
     return 'pong';
 });
 
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
