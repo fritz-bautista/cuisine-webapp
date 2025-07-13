@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ Mobile responsive -->
@@ -15,10 +16,10 @@
 <body>
     <div class="Nav-Bar">
         <div class="Nav-Bar-TopRow">
+            <button class="nav-toggle" onclick="toggleNav()">☰</button>
             <a class="Logo-link" href="{{ route('home') }}">
                 <img class="Logo" src="{{ asset('img/Logo.png') }}" alt="Logo">
             </a>
-            <button class="nav-toggle" onclick="toggleNav()">☰</button>
         </div>
 
         <div class="Nav-Bar-Category-Container" id="mobileNav">

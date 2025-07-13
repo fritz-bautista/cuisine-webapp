@@ -87,14 +87,15 @@ body {
    ============================= */
 @media (max-width: 768px) {
     .Nav-Bar {
-        flex-direction: column;
+        width: 100%;
+        display: flex;
         align-items: flex-start;
         padding: 2vh;
         height: auto;
     }
 
     .Nav-Bar-TopRow {
-        width: 100%;
+        width: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -126,7 +127,7 @@ body {
     }
 
     .Auth-Container {
-        width: 100%;
+        width: 30%;
         margin-top: 1vh;
         height: auto;
         justify-content: center;
