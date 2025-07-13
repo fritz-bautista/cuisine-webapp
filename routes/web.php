@@ -10,6 +10,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 
 
+Route::get('/health', function () {
+    return response()->json(['status' => 'ok']);
+});
+
 Route::get('/ping', function () {
     return 'pong';
 });
