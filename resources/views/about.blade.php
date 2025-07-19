@@ -93,31 +93,22 @@
                 </div>
             </div>
         </div>
-        <hr class="line-divider">
-        <div class="team-container">
-            <h2>Meet the CUISINE Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="https://i.pravatar.cc/150?img=1" alt="Team Member">
-                    <h3>Maria Lopez</h3>
-                    <p>Founder & Culinary Researcher</p>
+        <div class="founder-container">
+            <h2>Meet the Founder of CUISINE</h2>
+            <hr class="line-divider2">
+            <div class="founder-grid">
+                <div class="founder-image">
+                    <img src="{{ asset('img/founder.jpg') }}" alt="Founder Image">
                 </div>
-                <div class="team-member">
-                    <img src="https://i.pravatar.cc/150?img=2" alt="Team Member">
-                    <h3>Jason Rivera</h3>
-                    <p>Editor-in-Chief</p>
-                </div>
-                <div class="team-member">
-                    <img src="https://i.pravatar.cc/150?img=3" alt="Team Member">
-                    <h3>Kim Tan</h3>
-                    <p>Tech Lead & Developer</p>
-                </div>
-                <div class="team-member">
-                    <img src="https://i.pravatar.cc/150?img=4" alt="Team Member">
-                    <h3>Angela Cruz</h3>
-                    <p>Community Manager</p>
+                <div class="info">
+                    <h3>Jess Naungayan Gamata</h3>
+                    <h4>Founder & Culinary Researcher</h4>
+                    <p>With a passion for culinary arts and a vision to connect food enthusiasts globally, Jess Naungayan
+                        Gamata founded CUISINE to create a platform that celebrates culinary innovation, cultural diversity,
+                        and educational growth in the food industry.</p>
                 </div>
             </div>
+            <hr class="line-divider2">
         </div>
         <div class="call-to-action-container">
             <div class="left">
@@ -138,6 +129,8 @@
                 <img src="{{ asset('img/About/about-last.png') }}" alt="Join the movement" class="cta-image">
             </div>
         </div>
+        </div>
+    </body>
     <script>
         const features = [
             {
@@ -187,7 +180,6 @@
         // Initialize
         updateSlider();
     </script>
-
 @endsection
 
 @section('footer')
