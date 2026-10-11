@@ -1,1 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 @import "tailwindcss";
+
+p {
+    font-family: "Google Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+
+h1 {
+    font-family: "Google Sans", sans-serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-family: "Google Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-family: "Google Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+}
