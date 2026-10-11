@@ -8,6 +8,8 @@ use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use Inertia\Inertia;
+
 
 
 Route::get('/health', function () {
@@ -19,8 +21,8 @@ Route::get('/ping', function () {
 });
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return Inertia::render('Home');
+})->name('Home');
 
 Route::get('/publish/arti-blogs', [ArticleController::class, 'arti_blogs'])->name('arti.blogs');
 Route::get('/publish/arti-blogs/article-view', [ArticleController::class, 'arti_view'])->name('arti.view');
