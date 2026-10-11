@@ -11,7 +11,7 @@
 @section('content')
 
     <body>
-        <div class="home-main-header">
+        <div class="home-main-header inter">
             <img class="img-header" src="{{ asset(path: 'img/header/home_header.png') }}" alt="Banner Image">
 
             <div class="home-header-content">
@@ -20,31 +20,24 @@
             </div>
         </div>
 
-        <div class="home-featured-container">
+        <div class="home-featured-container inter">
             <div class="featured-description-container">
                 <h1>Featured Articles</h2>
                     <p>Check out these awesome stories about their culinary innovations from different people around the
                         world.</p>
-                    <button class="view-more-button">View More</button>
+                    <button class="view-more-button flex items-center justify-center cursor-pointer">View More</button>
             </div>
             <div class="article-slider">
                 @foreach (range(1, 5) as $i)
-                    <div class="article-card">
+                    <div class="article-card hover:scale-105 trasition duration-300 ease-in-out hover:cursor-pointer">
                         <div class="article-card-body">
-                            <!-- Tag -->
                             <span class="article-tag">Technology</span>
-
-                            <!-- Title -->
                             <h2 class="article-title">Article Title {{ $i }}</h2>
-
-                            <!-- Short Description -->
                             <p class="article-description">
                                 This is a short preview of the article content. You can replace this with a real excerpt or
                                 summary.
                             </p>
                         </div>
-
-                        <!-- Author Section -->
                         <div class="article-author">
                             <img src="https://i.pravatar.cc/40?img={{ $i }}" alt="Author" class="author-image">
                             <div class="author-info">
@@ -57,26 +50,26 @@
             </div>
         </div>
 
-        <div class="trending-restaurants-container">
-            <div class="trending-description-container">
-                <h1>Trending Restaurants</h1>
-                <p>Check out these awesome stories about their culinary innovations from different people around the world.
+        <div class="trending-restaurants-container inter">
+            <div class="flex flex-col text-left gap-10 m-20  justify-center">
+                <h1 class="text-5xl text-white font-bold ">Trending Restaurants</h1>
+                <p class="text-2xl text-white">Check out these awesome stories about their culinary innovations from different people around the world.
                 </p>
                 <button>View More</button>
             </div>
-            <div class="restaurant-showcase">
-                <div class="restaurant-grid">
-                    <div class="restaurant-card">
-                        <img src="https://picsum.photos/400/300?random=1" alt="Restaurant 1">
+            <div class="flex w-full h-full">
+                <div class="grid grid-cols-2 flex items-center justify-center w-full">
+                    <div class="restaurant-card h-full">
+                        <img src="https://picsum.photos/400/300?random=1" alt="Restaurant 1" class="object-cover " />
                     </div>
                     <div class="restaurant-card">
-                        <img src="https://picsum.photos/400/300?random=2" alt="Restaurant 2">
+                        <img src="https://picsum.photos/400/300?random=2" alt="Restaurant 2" class="object-cover">
                     </div>
                     <div class="restaurant-card">
-                        <img src="https://picsum.photos/400/300?random=3" alt="Restaurant 3">
+                        <img src="https://picsum.photos/400/300?random=3" alt="Restaurant 3" class="object-cover">
                     </div>
                     <div class="restaurant-card">
-                        <img src="https://picsum.photos/400/300?random=4" alt="Restaurant 4">
+                        <img src="https://picsum.photos/400/300?random=4" alt="Restaurant 4" class="object-cover">
                     </div>
                 </div>
             </div>

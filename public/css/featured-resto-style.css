@@ -31,7 +31,12 @@ body {
     font-family: 'Poppins', sans-serif;
     width: 90%;
     margin: auto;
-    padding: 3vh 0;
+}
+
+.slide-container {
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row; 
 }
 
 .explore-description-container {
@@ -42,9 +47,12 @@ body {
 }
 
 .resto-slider {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-direction: row;
     gap: 5vh;
+    flex-shrink: 0;
+    overflow-y: hidden;
+    height: max-content; 
 }
 
 .resto-card {

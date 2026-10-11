@@ -15,13 +15,13 @@
             <div class="admin-logo">
                 <img src="{{ asset('img/Logo_Admin.png') }}" alt="CUISINE Admin Logo">
             </div>
-            <nav class="admin-nav">
-                <a href="{{ route('admin.dashboard') }}">📰 Dashboard</a>
-                <a href="{{ route('articles.dashboard') }}">📰 Article Manager</a>
-                <a href="{{ route('admin.restaurants') }}">🍽️ Restaurant Manager</a>
-                <a href="{{ route('admin.users') }}">👥 User Manager</a>
-                <a href="{{ route('admin.events') }}">📅 Event Manager</a>
-                <a href="">⚙️ Settings</a>
+            <nav class="admin-nav p-10 text-2xl font-bold">
+                <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ route('articles.dashboard') }}">Article Manager</a>
+                <a href="{{ route('admin.restaurants') }}">Restaurant Manager</a>
+                <a href="{{ route('admin.users') }}">User Manager</a>
+                <a href="{{ route('admin.events') }}">Event Manager</a>
+                <a href="">Settings</a>
                 <form method="POST" action="{{ route('logout') }}" style="display:inline;">
                     @csrf
                     <button type="submit" style= cursor:pointer;>

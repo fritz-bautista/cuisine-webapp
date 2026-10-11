@@ -22,7 +22,6 @@
         <div class="announcement-container">
             <h1>Community Events</h1>
             <div class="events-container">
-                <!-- Event Card 1 -->
                 <div class="event-card">
                     <img src="https://picsum.photos/400/200?random=10" alt="Event Image">
                     <div class="event-details">
@@ -33,7 +32,6 @@
                     </div>
                 </div>
 
-                <!-- Event Card 2 -->
                 <div class="event-card">
                     <img src="https://picsum.photos/400/200?random=11" alt="Event Image">
                     <div class="event-details">

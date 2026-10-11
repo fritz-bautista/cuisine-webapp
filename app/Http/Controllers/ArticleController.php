@@ -27,7 +27,7 @@ class ArticleController extends Controller
 
     public function create()
     {
-        $categories = Category::all(); // fetch all categories
+        $categories = Category::all();
         return view('admin.article_create', compact('categories'));
     }
 
@@ -44,7 +44,7 @@ class ArticleController extends Controller
             'sections.*.image_url' => 'nullable|url',
         ]);
 
-        $user = auth()->user(); // ✅ use this to ensure context
+        $user = auth()->user(); 
 
         $baseSlug = Str::slug($request->title);
         $slug = $baseSlug;
@@ -60,16 +60,16 @@ class ArticleController extends Controller
             'author' => $request->author,
             'category_id' => $request->category_id,
             'published_at' => $request->published_at,
-            'description' => $request->description ?? null, // optional
-            'status' => $request->status, // <-- use the value from the form
-            'user_id' => $user->id, // ensure it's not null
+            'description' => $request->description ?? null,
+            'status' => $request->status, 
+            'user_id' => $user->id, 
         ]);
 
         if (!empty($validated['sections'])) {
             foreach ($validated['sections'] as $index => $section) {
                 $article->sections()->create([
                     'heading' => $section['heading'],
-                    'slug' => Str::slug($section['heading']), // ✅ ADD THIS
+                    'slug' => Str::slug($section['heading']), 
                     'content' => $section['content'],
                     'image_url' => $section['image_url'] ?? null,
                     'order' => $index,
@@ -111,7 +111,6 @@ class ArticleController extends Controller
             'sections.*.order' => 'nullable|integer',
         ]);
 
-        // 🔁 Ensure unique slug only if the title has changed or slug is duplicated
         $baseSlug = Str::slug($validated['title']);
         $slug = $baseSlug;
         $counter = 1;
@@ -130,7 +129,6 @@ class ArticleController extends Controller
             'description' => $validated['description'] ?? null,
         ]);
 
-        // 🔁 Sync sections: simplest way is to delete & recreate (for now)
         $article->sections()->delete();
 
         if (!empty($validated['sections'])) {
@@ -151,7 +149,7 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = Article::findOrFail($id);
-        $article->delete(); // This will also delete all related sections due to ON DELETE CASCADE
+        $article->delete(); 
 
         return redirect()->route('articles.dashboard')->with('success', 'Article deleted successfully.');
     }

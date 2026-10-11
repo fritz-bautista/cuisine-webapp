@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ Mobile responsive -->
     @yield('title')
-    {{-- ✅ Vite-compiled CSS/JS --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/nav-bar.css') }}">
     @yield('styles')

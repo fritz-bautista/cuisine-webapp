@@ -1,4 +1,3 @@
-<!-- resources/views/admin/article_dashboard.blade.php -->
 @extends('admin.main-admin')
 
 @section('styles')
