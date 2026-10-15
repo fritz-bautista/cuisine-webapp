@@ -7,6 +7,12 @@ p {
     font-size: 1rem;
 }
 
+a {
+    font-family: "Google Sans", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
 
 h1 {
     font-family: "Google Sans", sans-serif;
@@ -23,5 +29,26 @@ h2 {
 h3 {
     font-family: "Google Sans", sans-serif;
     font-weight: 700;
+    font-size: 1rem;
+}
+
+h4 {
+    font-family: "Google Sans", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.Button1 {
+    background-color: #C8FF76;
+    font-family: "Google Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.Button1:hover {
+    background-color: #668536;
+    color: black;
     font-size: 1rem;
 }
